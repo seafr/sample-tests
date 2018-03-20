@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserSignupTest < ActionDispatch::IntegrationTest
+class UsersSignupTest < ActionDispatch::IntegrationTest
   test "Invalid signup information" do
     get signup_path			# Not necessary
     assert_no_difference 'User.count' do
@@ -19,5 +19,6 @@ class UserSignupTest < ActionDispatch::IntegrationTest
 									password_confirmation: "password" }
 	end
 	assert_template 'users/show'
+    assert is_logged_in?
   end
 end
